@@ -3,6 +3,7 @@ A simple API Wrapper for AlexFlipnote's API
 ## Installation
 ```
 npm i -s alexflipnote.js
+```
 ## Endpoints
 
 ### Image

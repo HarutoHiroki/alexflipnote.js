@@ -25,6 +25,7 @@ declare class AlexClient {
     facts(opts: AlexClient.AlexFmlResults):Promise<AlexClient.AlexResult>;
     calling(opts: AlexClient.AlexFmlResults):Promise<AlexClient.AlexResult>;
     captcha(opts: AlexClient.AlexFmlResults):Promise<AlexClient.AlexResult>;
+    fml():Promise<AlexClient.AlexFmlResults>;
     achievement(opts: AlexClient.AlexTxtQueryParams):Promise<AlexClient.AlexResult>;
     challenge(opts: AlexClient.AlexTxtQueryParams):Promise<AlexClient.AlexResult>;
     supreme(opts: AlexClient.AlexTxtQueryParams):Promise<AlexClient.AlexResult>;
@@ -33,7 +34,6 @@ declare class AlexClient {
     pornhub(opts: AlexClient.AlexPH):Promise<AlexClient.AlexResult>;
     ship(opts: AlexClient.AlexS):Promise<AlexClient.AlexResult>;
     trash(opts: AlexClient.AlexT):Promise<AlexClient.AlexResult>;
-    fml():Promise<AlexClient.AlexFmlResults>;
   }
   others: {
     color(opts: AlexClient.AlexColor):Promise<AlexClient.AlexBody>;

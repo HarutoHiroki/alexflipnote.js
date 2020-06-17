@@ -7,6 +7,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarutoHiroki/alexflipnote.js.git"
+  },
+  "keywords": [
+    "AlexFlipnote",
+    "AlexFlipnote API"
+  ],
   "author": "harutohiroki",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HarutoHiroki/alexflipnote.js/issues"
+  },
+  "homepage": "https://github.com/HarutoHiroki/alexflipnote.js#readme"
 }

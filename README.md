@@ -64,7 +64,7 @@ All endpoints will return a `Link` except birb/cats/dogs/sadcat/color/steam/fml
 
 `color/steam` will return a JSON (example: [Color](https://api.alexflipnote.dev/color/00ffd9) [Steam](https://api.alexflipnote.dev/steam/user/alexflipnote))
 
-`fml` will return a JSON `{text: "text": "Today, I was running late for school and accidentally ran a red light and got pulled over. I couldn't find the registration and was freaking out, when the cop told me that he wouldn't give me a ticket if he could give me some advice. His advice? Don't wear your shirt inside-out. FML"}`
+`fml` will return a JSON `{"text": "Today, I was running late for school and accidentally ran a red light and got pulled over. I couldn't find the registration and was freaking out, when the cop told me that he wouldn't give me a ticket if he could give me some advice. His advice? Don't wear your shirt inside-out. FML"}`
 
 ## Typings
 I added a typings file and will be working to perfect it. This allows editors like VSC to use intellisense/autocomplete to suggest functions and help out with parameters and to see what you'll be receiving as a result of function calls.

@@ -1,0 +1,41 @@
+{
+  "image": {
+    "birb": "/birb", 
+    "cats": "/cats", 
+    "dogs": "/dogs", 
+    "sadcat": "/sadcat",
+    "amiajoke": "/amiajoke", 
+    "bad": "/bad", 
+    "joke": "/jokeoverhead", 
+    "salty": "/salty",
+    "blur": "/filter/blur",
+    "invert": "/filter/invert",
+    "bnw": "/filter/b&w",
+    "deepfry": "/filter/deepfry",
+    "pixelate": "/filter/pixelate",
+    "magik": "/filter/magik",
+    "jpegify": "/filter/jpegify",
+    "snow": "/filter/snow",
+    "gay": "/filter/gay",
+    "communist": "/filter/communist",
+    "colorify": "/colourify",
+    "floor": "/floor", 
+    "scroll": "/scroll", 
+    "facts": "/facts", 
+    "calling": "/calling", 
+    "captcha": "/captcha",
+    "achievement": "/achievement", 
+    "challenge": "/challenge", 
+    "supreme": "/supreme", 
+    "didyoumean": "/didyoumean", 
+    "drake": "/drake",
+    "fml": "/fml",
+    "pornhub": "/pornhub?text=text&text2=text", 
+    "ship": "/ship?user=url&user2=url", 
+    "trash": "/trash?face=url&trash=url"
+  },
+  "others": {
+    "color": "/color/", 
+    "steam": "/steam/user/"
+  }
+}

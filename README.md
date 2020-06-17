@@ -51,8 +51,11 @@ npm i -s alexflipnote.js
 
 Params such as:
 `image`,`user1`,`user2`,`face`,`trash` requires Discord CDN URLs
+
 `dark`,`light` requires a boolean value formatted as a string (`"true"`,`"false"`)
+
 `icons` requires a number (int) value
+
 `text` requires strings
 
 All endpoints will return a `Link` except birb/cats/dogs/sadcat/color/steam/fml

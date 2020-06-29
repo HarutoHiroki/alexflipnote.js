@@ -53,7 +53,7 @@ npm i -s alexflipnote.js
 | `steam()` | `user` | Find a Steam user |
 
 Params such as:
-`image`,`user1`,`user2`,`face`,`trash` requires Discord CDN URLs
+`image`,`user1`,`user2`,`face`,`trash` requires Discord CDN and MEDIA URLs
 
 `dark`,`light` requires a boolean value formatted as a string (`"true"`,`"false"`)
 

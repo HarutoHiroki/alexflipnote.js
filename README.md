@@ -82,7 +82,7 @@ const client = require('alexflipnote.js');
 const alexclient = new client();
 
 async function test() {
-  console.log(await alexclient.image.cat());
+  console.log(await alexclient.image.cats());
 }
 
 test();

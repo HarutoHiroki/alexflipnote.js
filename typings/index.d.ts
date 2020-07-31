@@ -18,6 +18,7 @@ declare class AlexClient {
     jpegify(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     snow(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     gay(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
+    wide(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     communist(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     colorify(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     floor(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
@@ -87,5 +88,5 @@ declare namespace AlexClient {
     bottom: string;
     ayano?: string;
   }
-  export type AlexResult = Buffer 
+  export type AlexResult = URL
 }

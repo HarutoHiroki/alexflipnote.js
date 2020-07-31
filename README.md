@@ -29,6 +29,7 @@ npm i -s alexflipnote.js
 | `jpegify()` | `image` | Turns image into jpeg |
 | `snow()` | `image` | Sends a snow image filter |
 | `gay()` | `image` | Sends a gay image filter |
+| `wide()` | `image` | Sends a wide Putin image filter |
 | `communist()` | `image` | Sends a communist image filter |
 | `colorify()` | `image` `c(optional)` `b(optional)` | Sends a colorify image filter |
 | `floor()` | `image` `text` | The floor is lava |

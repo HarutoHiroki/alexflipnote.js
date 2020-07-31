@@ -98,7 +98,7 @@ const alexclient = new client();
 let url = "https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024"
 
 async function test() {
-  console.log(await AlexClient.image.colorify({image: url, c: "00ffd9", b: "000000"}))
+  console.log(await alexclient.image.colorify({image: url, c: "00ffd9", b: "000000"}))
 }
 
 test()

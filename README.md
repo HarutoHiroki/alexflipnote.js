@@ -66,7 +66,7 @@ All endpoints will return a `Link` except birb/cats/dogs/sadcat/color/steam/fml
 
 `birb/cats/dogs/sadcat` will return a JSON `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`
 
-`color/steam` will return a JSON (example: [Color](https://api.alexflipnote.dev/color/00ffd9) [Steam](https://api.alexflipnote.dev/steam/user/alexflipnote))
+`color/steam` will return a JSON (example: [Color](https://api.alexflipnote.dev/color/00ffd9) | [Steam](https://api.alexflipnote.dev/steam/user/alexflipnote))
 
 `fml` will return a JSON `{"text": "Today, I was running late for school and accidentally ran a red light and got pulled over. I couldn't find the registration and was freaking out, when the cop told me that he wouldn't give me a ticket if he could give me some advice. His advice? Don't wear your shirt inside-out. FML"}`
 
@@ -107,10 +107,33 @@ returns:
 ```js
 "https://api.alexflipnote.dev/colourify?image=https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024&c=00ffd9&b=000000"
 ```
+Color Example
+```js
+const client = require('alexflipnote.js');
+const alexclient = new client();
+let body = await alexclient.others.color('00ffd9')
+console.log(body)
+``` 
+returns:
+```cmd
+{
+  "blackorwhite_text": "#ffffff", 
+  "brightness": 157, 
+  "hex": "#00ffd9", 
+  "image": "https://api.alexflipnote.dev/color/image/00ffd9", 
+  "image_gradient": "https://api.alexflipnote.dev/color/image/gradient/00ffd9", 
+  "int": 65497, 
+  "name": "Bright Teal", 
+  "rgb": "rgb(0, 255, 217)", 
+  "rgb_values": {"r": 0, "g": 255, "b": 217}, 
+  "shade": ["00ffd9", "00e5c3", "00ccad", "00b297", "009982", "007f6c", "006556", "004c41", "00322b", "001915", "000000"], 
+  "tint": ["00ffd9", "19ffdc", "33ffe0", "4cffe4", "66ffe8", "7fffec", "99ffef", "b2fff3", "ccfff7", "e5fffb", "FFFFFF"]
+}
+```
 
 # Made By
 This wrapper is made by HarutoHiroki#4000 on Discord.
 
-For questions and bug reports you can join [my server](https://discord.gg/sjtcnRb) or [AlexFlipnote's server](https://discord.gg/alexflipnote)(recommended)
+For questions and bug reports you can join [my server](https://discord.gg/sjtcnRb) or [AlexFlipnote's server](https://discord.gg/alexflipnote)
 
 Suggestions are welcomed!

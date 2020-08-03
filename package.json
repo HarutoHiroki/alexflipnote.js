@@ -1,6 +1,6 @@
 {
   "name": "alexflipnote.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "JS wrapper for https://api.alexflipnote.dev/",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/HarutoHiroki/alexflipnote.js.git"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "AlexFlipnote",
     "AlexFlipnote API",

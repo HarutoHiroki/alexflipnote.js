@@ -1,5 +1,5 @@
 {
-  "name": "alexflipnote.js",
+  "name": "@harutohiroki/alexflipnote.js",
   "version": "1.2.1",
   "description": "JS wrapper for https://api.alexflipnote.dev/",
   "main": "index.js",

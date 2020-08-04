@@ -17,6 +17,7 @@
     "jpegify": "/filter/jpegify",
     "snow": "/filter/snow",
     "gay": "/filter/gay",
+    "sepia": "/filter/sepia",
     "wide": "/filter/wide",
     "communist": "/filter/communist",
     "colorify": "/colourify",

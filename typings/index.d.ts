@@ -39,7 +39,6 @@ declare class AlexClient {
   }
   others: {
     color(opts: AlexClient.AlexColor):Promise<AlexClient.AlexBody>;
-    steam(opts: AlexClient.AlexColor):Promise<AlexClient.AlexBody>;
   }
 }
 

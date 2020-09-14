@@ -6,7 +6,13 @@ const { isObject } = require('util');
 
 function getContent(url) {
   return new Promise((resolve, reject) => {
-    get(url, (res) => {
+    get({
+      url,
+      agent: { 
+        'User-Agent': 'AlexFlipnote.js@1.2.4 by HarutoHiroki#4000'//,
+        //'Authorization': 'Haha yes gimme the key pls Alex kthx'
+      }
+    }, (res) => {
       const {statusCode} = res;
       if(statusCode !== 200) {
         res.resume();
@@ -59,10 +65,6 @@ class AlexClient {
           }else{
             return console.error("Not a valid hex value")
           }
-        }
-        if(endpoints.others[endpoint].includes("steam")){
-          url = url.toString()+params
-          return await getContent(url);
         }
       };
     });

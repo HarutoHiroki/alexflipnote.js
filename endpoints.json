@@ -37,7 +37,6 @@
     "trash": "/trash?face=url&trash=url"
   },
   "others": {
-    "color": "/color/", 
-    "steam": "/steam/user/"
+    "color": "/color/"
   }
 }

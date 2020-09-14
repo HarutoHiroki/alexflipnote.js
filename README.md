@@ -52,7 +52,6 @@ npm i -s alexflipnote.js
 | Function | Params | Description |
 | -------- | ------ | ----------- |
 | `color()` | `hex` | Searches a Color |
-| `steam()` | `user` | Find a Steam user |
 
 Params such as:
 `image`,`user1`,`user2`,`face`,`trash` requires Discord CDN and MEDIA URLs
@@ -63,11 +62,11 @@ Params such as:
 
 `text` requires strings
 
-All endpoints will return a `Link` except birb/cats/dogs/sadcat/color/steam/fml
+All endpoints will return a `Link` except birb/cats/dogs/sadcat/color/fml
 
 `birb/cats/dogs/sadcat` will return a JSON `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`
 
-`color/steam` will return a JSON (example: [Color](https://api.alexflipnote.dev/color/00ffd9) | [Steam](https://api.alexflipnote.dev/steam/user/alexflipnote))
+`color` will return a JSON (example: [Color](https://api.alexflipnote.dev/color/00ffd9))
 
 `fml` will return a JSON `{"text": "Today, I was running late for school and accidentally ran a red light and got pulled over. I couldn't find the registration and was freaking out, when the cop told me that he wouldn't give me a ticket if he could give me some advice. His advice? Don't wear your shirt inside-out. FML"}`
 

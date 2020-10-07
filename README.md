@@ -44,7 +44,7 @@ npm i -s alexflipnote.js
 | `supreme()` | `text` `dark(optional)` `light(optional)` | Sends a Supreme image |
 | `didyoumean()` | `top` `bottom` | Google Did you mean? |
 | `drake()` | `top` `bottom` | Drake meme image |
-| `pornhub()` | `text1` `text2` | Pornhub Logo image |
+| `pornhub()` | `text` `text2` | Pornhub Logo image |
 | `ship()` | `user1` `user2` | Ships 2 users |
 | `trash()` | `face` `trash` | Points out someone is trash |
 

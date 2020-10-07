@@ -45,7 +45,7 @@ npm i -s alexflipnote.js
 | `didyoumean()` | `top` `bottom` | Google Did you mean? |
 | `drake()` | `top` `bottom` | Drake meme image |
 | `pornhub()` | `text` `text2` | Pornhub Logo image |
-| `ship()` | `user1` `user2` | Ships 2 users |
+| `ship()` | `user` `user2` | Ships 2 users |
 | `trash()` | `face` `trash` | Points out someone is trash |
 
 ### Others

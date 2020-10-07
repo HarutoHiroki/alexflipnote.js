@@ -1,18 +1,12 @@
-const {get} = require('https');
+const https = require('https');
 const {URL, URLSearchParams} = require('url');
 const endpoints = require('./endpoints.json');
 const { isObject } = require('util');
 //const fsp = require('fs/promises')
-
 function getContent(url) {
+  const userAgent = new https.Agent({ 'User-Agent': 'AlexFlipnote.js@1.2.5 by HarutoHiroki#4000' })
   return new Promise((resolve, reject) => {
-    get({
-      url,
-      agent: { 
-        'User-Agent': 'AlexFlipnote.js@1.2.4 by HarutoHiroki#4000'//,
-        //'Authorization': 'Haha yes gimme the key pls Alex kthx'
-      }
-    }, (res) => {
+    https.get(url,{ agent: userAgent }, (res) => {
       const {statusCode} = res;
       if(statusCode !== 200) {
         res.resume();

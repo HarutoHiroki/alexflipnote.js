@@ -32,9 +32,10 @@
     "didyoumean": "/didyoumean", 
     "drake": "/drake",
     "fml": "/fml",
-    "pornhub": "/pornhub?text=text&text2=text", 
-    "ship": "/ship?user=url&user2=url", 
-    "trash": "/trash?face=url&trash=url"
+    "pornhub": "/pornhub", 
+    "ship": "/ship", 
+    "trash": "/trash",
+    "what": "/what"
   },
   "others": {
     "color": "/color/"

@@ -32,6 +32,7 @@ npm i -s alexflipnote.js
 | `wide()` | `image` | Sends a wide Putin image filter |
 | `sepia()` | `image` | Sends a Sepia image filter |
 | `communist()` | `image` | Sends a communist image filter |
+| `what()` | `image` | Sends an Earthbound WHAT meme |
 | `colorify()` | `image` `c(optional)` `b(optional)` | Sends a colorify image filter |
 | `floor()` | `image` `text` | The floor is lava |
 | `scroll()` | `text` | Sends the Scroll of Truth |

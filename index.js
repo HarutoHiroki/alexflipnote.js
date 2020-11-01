@@ -4,9 +4,9 @@ const endpoints = require('./endpoints.json');
 const { isObject } = require('util');
 //const fsp = require('fs/promises')
 function getContent(url) {
-  const userAgent = new https.Agent({ 'User-Agent': 'AlexFlipnote.js@1.2.5 by HarutoHiroki#4000' })
+  //const userAgent = new https.Agent({ 'User-Agent': 'AlexFlipnote.js@1.2.5 by HarutoHiroki#4000' })
   return new Promise((resolve, reject) => {
-    https.get(url,{ agent: userAgent }, (res) => {
+    https.get(url, (res) => {
       const {statusCode} = res;
       if(statusCode !== 200) {
         res.resume();

@@ -9,6 +9,7 @@ declare class AlexClient {
     bad(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     joke(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     salty(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
+    what(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     blur(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     invert(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
     bnW(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;

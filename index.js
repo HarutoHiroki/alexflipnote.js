@@ -1,43 +1,24 @@
-const https = require('https');
+const request = require('request');
 const {URL, URLSearchParams} = require('url');
 const endpoints = require('./endpoints.json');
-const { isObject } = require('util');
-//const fsp = require('fs/promises')
-function getContent(url) {
-  //const userAgent = new https.Agent({ 'User-Agent': 'AlexFlipnote.js@1.2.5 by HarutoHiroki#4000' })
+function getContent(url, key) {
   return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
-      const {statusCode} = res;
-      if(statusCode !== 200) {
-        res.resume();
-        reject(`Request failed. Status code: ${statusCode}`);
-      }
-      res.setEncoding('utf8');
-      let rawData = '';
-      res.on('data', (chunk) => {rawData += chunk});
-      res.on('end', () => {
-        try {
-          if (/^[\],:{}\s]*$/.test(rawData.replace(/\\["\\\/bfnrtu]/g, '@').
-          replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
-          replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-            const parsedData = JSON.parse(rawData);
-            resolve(parsedData);
-          }
-          else {
-            resolve(url)
-          }
-        } catch(e) {
-          reject(`Error: ${e.message}`);
-        }
-      });
-    }).on('error', (err) => {
-      reject(`Error: ${err.message}`);
+    request({
+      headers:{
+        'Authorization': key,
+        'User-Agent': 'AlexFlipnote.js@2.0.0 by HarutoHiroki#4000' 
+      },
+      url: url,
+      method: 'GET'
+    }, function (err, res, body) {
+      if(err) reject(`Error: ${err}`);
+      resolve(JSON.parse(res.body));
     })
-  });
+  })
 }
 
 class AlexClient {
-  constructor() {
+  constructor(key) {
     let self = this;
     self.image = {};
     self.others = {};
@@ -46,7 +27,7 @@ class AlexClient {
       self.image[endpoint] = async function (queryParams = '') {
         let url = new URL(`${baseURL}${endpoints.image[endpoint]}`);
         queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
-        return await getContent(url.toString());
+        return await getContent(url.toString(), key);
         };
     });
     Object.keys(endpoints.others).forEach( async (endpoint) => {
@@ -55,7 +36,7 @@ class AlexClient {
         if(endpoints.others[endpoint].includes("color")){
           if(/^[0-9A-F]{6}$/i.test(params.toUpperCase())){
             url = url.toString()+params
-            return await getContent(url);
+            return await getContent(url, key);
           }else{
             return console.error("Not a valid hex value")
           }

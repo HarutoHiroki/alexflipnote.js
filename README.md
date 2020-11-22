@@ -7,6 +7,12 @@ A simple API Wrapper for AlexFlipnote's API
 ```
 npm i -s alexflipnote.js
 ```
+
+## Tokens
+Since AlexFlipnote recently added an Authorization feature to the API, ALL previous versions of this wrapper will no longer work and are considered to be deprecated!
+
+Wondering how to get an Auth token to use your API ye? Well head on to https://discord.gg/DpxkY3x to request one.
+
 ## Endpoints
 
 ### Image
@@ -78,7 +84,7 @@ I added a typings file and will be working to perfect it. This allows editors li
 Await/Async example
 ```js
 const client = require('alexflipnote.js');
-const alexclient = new client();
+const alexclient = new client('Your-API-Token-Here');
 
 async function test() {
   console.log(await alexclient.image.cats());
@@ -94,7 +100,7 @@ returns:
 Colorify Example
 ```js
 const client = require('alexflipnote.js');
-const alexclient = new client();
+const alexclient = new client('Your-API-Token-Here');
 
 let url = "https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024"
 
@@ -111,7 +117,7 @@ returns:
 Color Example
 ```js
 const client = require('alexflipnote.js');
-const alexclient = new client();
+const alexclient = new client('Your-API-Token-Here');
 let body = await alexclient.others.color('00ffd9')
 console.log(body)
 ``` 

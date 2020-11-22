@@ -9,7 +9,7 @@ async function getContent(url, key, image) {
         'User-Agent': 'AlexFlipnote.js@2.0.0 by HarutoHiroki#4000' 
       }
     });
-    return image ? res.buffer() : res.json();
+    return image ? await res.buffer() : await res.json();
   }
   catch (e) {
     return `Error: ${e}`;

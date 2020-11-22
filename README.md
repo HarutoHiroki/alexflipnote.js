@@ -69,7 +69,7 @@ Params such as:
 
 `text` requires strings
 
-All endpoints will return a `Link` except birb/cats/dogs/sadcat/color/fml
+All endpoints will return a `Buffer` except birb/cats/dogs/sadcat/color/fml
 
 `birb/cats/dogs/sadcat` will return a JSON `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`
 
@@ -86,15 +86,10 @@ Await/Async example
 const client = require('alexflipnote.js');
 const alexclient = new client('Your-API-Token-Here');
 
-async function test() {
-  console.log(await alexclient.image.cats());
-}
+let link = await alexclient.image.cats();
+let attachment = new Discord.MessageAttachment(link, "cat.png");
+message.channel.send(attachment);
 
-test();
-```
-returns: 
-```js
-{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}
 ```
 
 Colorify Example
@@ -104,16 +99,12 @@ const alexclient = new client('Your-API-Token-Here');
 
 let url = "https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024"
 
-async function test() {
-  console.log(await alexclient.image.colorify({image: url, c: "00ffd9", b: "000000"}))
-}
+let link = await alexclient.image.colorify({image: url, c: "00ffd9", b: "000000"}));
+let attachment = new Discord.MessageAttachment(link, "colorify.png");
+message.channel.send(attachment);
 
-test()
 ```
-returns: 
-```js
-"https://api.alexflipnote.dev/colourify?image=https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024&c=00ffd9&b=000000"
-```
+
 Color Example
 ```js
 const client = require('alexflipnote.js');

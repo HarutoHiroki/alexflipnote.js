@@ -9,10 +9,24 @@ function getContent(url, key) {
         'User-Agent': 'AlexFlipnote.js@2.0.0 by HarutoHiroki#4000' 
       },
       url: url,
-      method: 'GET'
+      method: 'GET',
+      encoding: null
     }, function (err, res, body) {
       if(err) reject(`Error: ${err}`);
-      resolve(JSON.parse(res.body));
+      try {	
+        if (Buffer.isBuffer(body)) {
+          resolve(Buffer.from(body))
+        }	else if (/^[\],:{}\s]*$/.test(body.replace(/\\["\\\/bfnrtu]/g, '@').	
+        replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').	
+        replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {	
+          const parsedData = JSON.parse(body);	
+          resolve(parsedData);	
+        } else {
+          reject(`ERROR! \nPlease come to discord.gg/sjtcnRb to report this error to HarutoHiroki#4000`)
+        }
+      } catch(e) {	
+        reject(`Error: ${e.message}`);	
+      }
     })
   })
 }

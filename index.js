@@ -1,57 +1,41 @@
-const request = require('request');
+const fetch = require('node-fetch');
 const {URL, URLSearchParams} = require('url');
 const endpoints = require('./endpoints.json');
-function getContent(url, key) {
-  return new Promise((resolve, reject) => {
-    request({
-      headers:{
+async function getContent(url, key) {
+  try {
+    const res = await fetch(url, {
+      headers: {
         'Authorization': key,
         'User-Agent': 'AlexFlipnote.js@2.0.0 by HarutoHiroki#4000' 
-      },
-      url: url,
-      method: 'GET',
-      encoding: null
-    }, function (err, res, body) {
-      if(err) reject(`Error: ${err}`);
-      try {	
-        if (Buffer.isBuffer(body)) {
-          resolve(Buffer.from(body))
-        }	else if (/^[\],:{}\s]*$/.test(body.replace(/\\["\\\/bfnrtu]/g, '@').	
-        replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').	
-        replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {	
-          const parsedData = JSON.parse(body);	
-          resolve(parsedData);	
-        } else {
-          reject(`ERROR! \nPlease come to discord.gg/sjtcnRb to report this error to HarutoHiroki#4000`)
-        }
-      } catch(e) {	
-        reject(`Error: ${e.message}`);	
       }
-    })
-  })
+    });
+    return res.headers.get("content-type") === "application/json" ? await res.json() : await res.buffer();
+  }
+  catch (e) {
+    return `Error: ${e}`;
+  }
 }
 
 class AlexClient {
   constructor(key) {
-    let self = this;
-    self.image = {};
-    self.others = {};
+    this.image = {};
+    this.others = {};
     let baseURL = 'https://api.alexflipnote.dev';
     Object.keys(endpoints.image).forEach(async (endpoint) => {
-      self.image[endpoint] = async function (queryParams = '') {
-        let url = new URL(`${baseURL}${endpoints.image[endpoint]}`);
-        queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
-        return await getContent(url.toString(), key);
+      this.image[endpoint] = async function (queryParams = '') {
+          let url = new URL(`${baseURL}${endpoints.image[endpoint]}`);
+          queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
+          return await getContent(url.toString(), key);
         };
     });
-    Object.keys(endpoints.others).forEach( async (endpoint) => {
-      self.others[endpoint] = async function (params = '') {
+    Object.keys(endpoints.others).forEach(async (endpoint) => {
+      this.others[endpoint] = async function (params = '') {
         let url = new URL(`${baseURL}${endpoints.others[endpoint]}`);
-        if(endpoints.others[endpoint].includes("color")){
-          if(/^[0-9A-F]{6}$/i.test(params.toUpperCase())){
-            url = url.toString()+params
+        if (endpoints.others[endpoint].includes("color")) {
+          if (/^[0-9A-F]{6}$/i.test(params.toUpperCase())) {
+            url = url.toString() + params
             return await getContent(url, key);
-          }else{
+          } else {
             return console.error("Not a valid hex value")
           }
         }

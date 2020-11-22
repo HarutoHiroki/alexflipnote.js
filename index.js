@@ -6,7 +6,7 @@ async function getContent(url, key) {
     const res = await fetch(url, {
       headers: {
         'Authorization': key,
-        'User-Agent': 'AlexFlipnote.js@2.0.0 by HarutoHiroki#4000' 
+        'User-Agent': 'AlexFlipnote.js@2.2.0 by HarutoHiroki#4000' 
       }
     });
     return res.headers.get("content-type") === "application/json" ? await res.json() : await res.buffer();

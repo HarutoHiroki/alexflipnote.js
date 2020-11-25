@@ -1,12 +1,13 @@
 const fetch = require('node-fetch');
 const {URL, URLSearchParams} = require('url');
 const endpoints = require('./endpoints.json');
+let version = require("./package.json").version;
 async function getContent(url, key) {
   try {
     const res = await fetch(url, {
       headers: {
         'Authorization': key,
-        'User-Agent': 'AlexFlipnote.js@2.2.0 by HarutoHiroki#4000' 
+        'User-Agent': `AlexFlipnote.js@${version} by HarutoHiroki#4000`
       }
     });
     return res.headers.get("content-type") === "application/json" ? await res.json() : await res.buffer();

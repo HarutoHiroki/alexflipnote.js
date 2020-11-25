@@ -1,11 +1,11 @@
 # alexflipnote.js [![npm](https://img.shields.io/npm/v/alexflipnote.js.svg)](https://www.npmjs.com/package/alexflipnote.js) [![npm](https://img.shields.io/npm/dt/alexflipnote.js.svg?maxAge=3600)](https://www.npmjs.com/package/alexflipnote.js) [![install size](https://packagephobia.now.sh/badge?p=alexflipnote.js)](https://packagephobia.now.sh/result?p=alexflipnote.js)
-A simple API Wrapper for AlexFlipnote's API
+A simple AlexFlipnote API Wrapper
 
 [![NPM](https://nodei.co/npm/alexflipnote.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/alexflipnote.js/)
 
 ## Installation
 ```
-npm i -s alexflipnote.js
+npm i alexflipnote.js
 ```
 
 ## Tokens
@@ -73,7 +73,7 @@ All endpoints will return a `Buffer` except birb/cats/dogs/sadcat/color/fml
 
 `birb/cats/dogs/sadcat` will return a JSON `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`
 
-`color` will return a JSON (example: [Color](https://api.alexflipnote.dev/color/00ffd9))
+`color` will return a JSON (example: [Color](https://github.com/HarutoHiroki/alexflipnote.js/blob/master/README.md#Color-Example))
 
 `fml` will return a JSON `{"text": "Today, I was running late for school and accidentally ran a red light and got pulled over. I couldn't find the registration and was freaking out, when the cop told me that he wouldn't give me a ticket if he could give me some advice. His advice? Don't wear your shirt inside-out. FML"}`
 
@@ -81,7 +81,7 @@ All endpoints will return a `Buffer` except birb/cats/dogs/sadcat/color/fml
 I added a typings file and will be working to perfect it. This allows editors like VSC to use intellisense/autocomplete to suggest functions and help out with parameters and to see what you'll be receiving as a result of function calls.
 
 ## Examples
-Await/Async example
+### Await/Async example
 ```js
 const client = require('alexflipnote.js');
 const alexclient = new client('Your-API-Token-Here');
@@ -92,12 +92,12 @@ message.channel.send(attachment);
 
 ```
 
-Colorify Example
+### Colorify Example
 ```js
 const client = require('alexflipnote.js');
 const alexclient = new client('Your-API-Token-Here');
 
-let url = "https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024"
+let url = "https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024";
 
 let link = await alexclient.image.colorify({image: url, c: "00ffd9", b: "000000"}));
 let attachment = new Discord.MessageAttachment(link, "colorify.png");
@@ -105,12 +105,13 @@ message.channel.send(attachment);
 
 ```
 
-Color Example
+### Color Example
 ```js
 const client = require('alexflipnote.js');
 const alexclient = new client('Your-API-Token-Here');
-let body = await alexclient.others.color('00ffd9')
-console.log(body)
+let body = await alexclient.others.color('00ffd9');
+message.channel.send(body);
+
 ``` 
 returns:
 ```cmd

@@ -16,7 +16,7 @@ async function getContent(url, key) {
     return `Error: ${e}`;
   }
 }
-
+// boom i contributed, 
 class AlexClient {
   constructor(key) {
     this.image = {};

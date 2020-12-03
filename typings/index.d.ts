@@ -1,93 +1,50 @@
 //List all the functions
 declare class AlexClient {
+  private key: string;
+  constructor(key: string) {
+    this.key = key;
+  }
   image: {
-    birb():Promise<AlexClient.AlexRequestResults>;
-    cats():Promise<AlexClient.AlexRequestResults>;
-    dogs():Promise<AlexClient.AlexRequestResults>;
-    sadcat():Promise<AlexClient.AlexRequestResults>;
-    amiajoke(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    bad(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    joke(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    salty(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    what(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    blur(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    invert(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    bnW(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    deepfry(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    pixelate(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    magik(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    jpegify(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    snow(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    gay(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    wide(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    sepia(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    communist(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    colorify(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    floor(opts: AlexClient.AlexImgQueryParams):Promise<AlexClient.AlexResult>;
-    scroll(opts: AlexClient.AlexFmlResults):Promise<AlexClient.AlexResult>;
-    facts(opts: AlexClient.AlexFmlResults):Promise<AlexClient.AlexResult>;
-    calling(opts: AlexClient.AlexFmlResults):Promise<AlexClient.AlexResult>;
-    captcha(opts: AlexClient.AlexFmlResults):Promise<AlexClient.AlexResult>;
-    fml():Promise<AlexClient.AlexFmlResults>;
-    achievement(opts: AlexClient.AlexTxtQueryParams):Promise<AlexClient.AlexResult>;
-    challenge(opts: AlexClient.AlexTxtQueryParams):Promise<AlexClient.AlexResult>;
-    supreme(opts: AlexClient.AlexTxtQueryParams):Promise<AlexClient.AlexResult>;
-    didyoumean(opts: AlexClient.AlexTopBottomText):Promise<AlexClient.AlexResult>;
-    drake(opts: AlexClient.AlexTopBottomText):Promise<AlexClient.AlexResult>;
-    pornhub(opts: AlexClient.AlexPH):Promise<AlexClient.AlexResult>;
-    ship(opts: AlexClient.AlexS):Promise<AlexClient.AlexResult>;
-    trash(opts: AlexClient.AlexT):Promise<AlexClient.AlexResult>;
+    birb():Promise<JSON>;
+    cats():Promise<JSON>;
+    dogs():Promise<JSON>;
+    sadcat():Promise<JSON>;
+    fml():Promise<JSON>;
+    amiajoke(object: {image: string}):Promise<Buffer>;
+    bad(object: {image: string}):Promise<Buffer>;
+    joke(object: {image: string}):Promise<Buffer>;
+    salty(object: {image: string}):Promise<Buffer>;
+    what(object: {image: string}):Promise<Buffer>;
+    blur(object: {image: string}):Promise<Buffer>;
+    invert(object: {image: string}):Promise<Buffer>;
+    bnW(object: {image: string}):Promise<Buffer>;
+    deepfry(object: {image: string}):Promise<Buffer>;
+    pixelate(object: {image: string}):Promise<Buffer>;
+    magik(object: {image: string}):Promise<Buffer>;
+    jpegify(object: {image: string}):Promise<Buffer>;
+    snow(object: {image: string}):Promise<Buffer>;
+    gay(object: {image: string}):Promise<Buffer>;
+    wide(object: {image: string}):Promise<Buffer>;
+    sepia(object: {image: string}):Promise<Buffer>;
+    communist(object: {image: string}):Promise<Buffer>;
+    colorify(object: {image: string, b?: string, c?: string}):Promise<Buffer>;
+    floor(object: {image: string, text: string}):Promise<Buffer>;
+    scroll(object: {image: string}):Promise<Buffer>;
+    facts(object: {image: string}):Promise<Buffer>;
+    calling(object: {image: string}):Promise<Buffer>;
+    captcha(object: {image: string}):Promise<Buffer>;
+    achievement(object: {text: string, icon?: number}):Promise<Buffer>;
+    challenge(object: {text: string, icon?: number}):Promise<Buffer>;
+    supreme(object: {text: string, dark?: boolean, light?: boolean}):Promise<Buffer>;
+    didyoumean(object: {top: string, bottom: string}):Promise<Buffer>;
+    drake(object: {top: string, bottom: string}):Promise<Buffer>;
+    pornhub(object: {text: string, text2: string}):Promise<Buffer>;
+    ship(object: {user: string, user2: string}):Promise<Buffer>;
+    trash(object: {face: string, trash: string}):Promise<Buffer>;
   }
   others: {
-    color(opts: AlexClient.AlexColor):Promise<AlexClient.AlexBody>;
+    color(string: "Hex Value"):Promise<JSON>;
   }
 }
 
 export = AlexClient;
-
-
-declare namespace AlexClient {
-  //Help create options interface for the few functions that need it
-  export interface AlexImgQueryParams {
-    image: string;
-    text?: string;
-    c?: string;
-    b?: string;
-  }
-  export interface AlexTxtQueryParams {
-    text: string;
-    icon?: string;
-    dark?: string;
-    light?: string;
-  }
-  export interface AlexRequestResults {
-    file: string;
-  }
-  export interface AlexFmlResults {
-    text: string;
-  }
-  export interface AlexBody {
-    body: string;
-  }
-  export interface AlexPH {
-    text1: string;
-    text2: string;
-  }
-  export interface AlexS {
-    user1: string;
-    user2: string;
-  }
-  export interface AlexT {
-    face: string;
-    trash: string;
-  }
-  export interface AlexColor {
-    text: string;
-  }
-  export interface AlexTopBottomText {
-    top: string;
-    bottom: string;
-    ayano?: string;
-  }
-  export type AlexResult = URL
-}

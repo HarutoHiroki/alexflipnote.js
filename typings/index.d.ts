@@ -1,9 +1,7 @@
 //List all the functions
 declare class AlexClient {
   private key: string;
-  constructor(key: string) {
-    this.key = key;
-  }
+  constructor(key: string);
   image: {
     birb():Promise<JSON>;
     cats():Promise<JSON>;

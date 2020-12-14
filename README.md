@@ -87,8 +87,7 @@ const client = require('alexflipnote.js');
 const alexclient = new client('Your-API-Token-Here');
 
 let link = await alexclient.image.cats();
-let attachment = new Discord.MessageAttachment(link, "cat.png");
-message.channel.send(attachment);
+message.channel.send({files: [{ attachment: link.file }]});
 
 ```
 

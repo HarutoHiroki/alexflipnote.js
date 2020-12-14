@@ -28,7 +28,7 @@ declare class AlexClient {
     colorify(object: {image: string, b?: string, c?: string}):Promise<Buffer>;
     floor(object: {image: string, text: string}):Promise<Buffer>;
     scroll(object: {image: string}):Promise<Buffer>;
-    facts(object: {image: string}):Promise<Buffer>;
+    facts(object: {text: string}):Promise<Buffer>;
     calling(object: {image: string}):Promise<Buffer>;
     captcha(object: {image: string}):Promise<Buffer>;
     achievement(object: {text: string, icon?: number}):Promise<Buffer>;

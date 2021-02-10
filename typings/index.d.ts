@@ -15,7 +15,8 @@ declare class AlexClient {
     what(object: {image: string}):Promise<Buffer>;
     blur(object: {image: string}):Promise<Buffer>;
     invert(object: {image: string}):Promise<Buffer>;
-    bnW(object: {image: string}):Promise<Buffer>;
+    bnw(object: {image: string}):Promise<Buffer>;
+    flip(object: {image: string}):Promise<Buffer>;
     deepfry(object: {image: string}):Promise<Buffer>;
     pixelate(object: {image: string}):Promise<Buffer>;
     magik(object: {image: string}):Promise<Buffer>;

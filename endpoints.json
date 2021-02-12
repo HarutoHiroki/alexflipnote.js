@@ -12,6 +12,7 @@
     "invert": "/filter/invert",
     "bnw": "/filter/b&w",
     "flip": "/filter/flip",
+    "mirror": "/filter/mirror",
     "deepfry": "/filter/deepfry",
     "pixelate": "/filter/pixelate",
     "magik": "/filter/magik",

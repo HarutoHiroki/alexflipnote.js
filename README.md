@@ -30,6 +30,7 @@ Wondering how to get an Auth token to use your API ye? Well head on to https://d
 | `invert()` | `image` | Sends a inverted color image filter |
 | `bnw()` | `image` | Sends a black and white image filter |
 | `flip()` | `image` | Sends a the flipped version of the image |
+| `mirror()` | `image` | Sends a the mirrored version of the image |
 | `deepfry()` | `image` | Sends a deep fry image filter |
 | `pixelate()` | `image` | Sends a pixelated image filter |
 | `magik()` | `image` | Sends a magik image filter |

@@ -7,6 +7,7 @@ declare class AlexClient {
     cats():Promise<JSON>;
     dogs():Promise<JSON>;
     sadcat():Promise<JSON>;
+    coffee():Promise<JSON>;
     fml():Promise<JSON>;
     amiajoke(object: {image: string}):Promise<Buffer>;
     bad(object: {image: string}):Promise<Buffer>;

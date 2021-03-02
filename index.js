@@ -24,6 +24,9 @@ class AlexClient {
     let baseURL = 'https://api.alexflipnote.dev';
     Object.keys(endpoints.image).forEach(async (endpoint) => {
       this.image[endpoint] = async function (queryParams = '') {
+          if(endpoint.includes("coffee")){
+            baseURL = 'https://coffee.alexflipnote.dev'
+          }
           let url = new URL(`${baseURL}${endpoints.image[endpoint]}`);
           queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
           return await getContent(url.toString(), key);

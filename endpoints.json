@@ -38,7 +38,8 @@
     "pornhub": "/pornhub", 
     "ship": "/ship", 
     "trash": "/trash",
-    "what": "/what"
+    "what": "/what",
+    "coffee": "/random.json"
   },
   "others": {
     "color": "/color/"

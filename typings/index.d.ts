@@ -8,7 +8,6 @@ declare class AlexClient {
     dogs():Promise<JSON>;
     sadcat():Promise<JSON>;
     coffee():Promise<JSON>;
-    fml():Promise<JSON>;
     amiajoke(object: {image: string}):Promise<Buffer>;
     bad(object: {image: string}):Promise<Buffer>;
     joke(object: {image: string}):Promise<Buffer>;
@@ -45,6 +44,7 @@ declare class AlexClient {
     trash(object: {face: string, trash: string}):Promise<Buffer>;
   }
   others: {
+    fml():Promise<JSON>;
     color(string: "Hex Value"):Promise<JSON>;
   }
 }

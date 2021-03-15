@@ -23,7 +23,6 @@ Wondering how to get an Auth token to use your API ye? Well head on to https://d
 | `dogs()` | none | Sends a random dog image | JSON |
 | `sadcat()` | none | Sends a random sad cat image | JSON |
 | `coffee()` | none | Sends a random Coffee image | JSON |
-| `fml()` | none | Sends a random F*** my life quote | JSON |
 | `amiajoke()` | `image` | Am I A Joke Meme | Buffer |
 | `bad()` | `image` | Show someone how bad they are | Buffer |
 | `joke()` | `image` | r/wooosh | Buffer |
@@ -62,7 +61,8 @@ Wondering how to get an Auth token to use your API ye? Well head on to https://d
 ### Others
 | Function | Params | Description | Type |
 | -------- | ------ | ----------- | ---- |
-| `color()` | `hex` | Searches a Color | JSON |
+| `fml()` | none | Sends a random F*** my life quote | JSON |
+| `color()` | `hex` | Searches a color from hex code and provide more info | JSON |
 
 Params such as:
 `image`,`user`,`user2`,`face`,`trash` requires Discord CDN and MEDIA URLs

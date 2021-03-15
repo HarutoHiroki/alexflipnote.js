@@ -35,13 +35,16 @@ class AlexClient {
     Object.keys(endpoints.others).forEach(async (endpoint) => {
       this.others[endpoint] = async function (params = '') {
         let url = new URL(`${baseURL}${endpoints.others[endpoint]}`);
-        if (endpoints.others[endpoint].includes("color")) {
+        if (endpoint.includes("color")) {
           if (/^[0-9A-F]{6}$/i.test(params.toUpperCase())) {
             url = url.toString() + params
             return await getContent(url, key);
           } else {
             return console.error("Not a valid hex value")
           }
+        }else{
+          queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
+          return await getContent(url.toString(), key);
         }
       };
     });

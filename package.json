@@ -1,6 +1,6 @@
 {
   "name": "alexflipnote.js",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "JS API wrapper for AlexFlipnote API @ https://api.alexflipnote.dev/",
   "main": "index.js",
   "typings": "./typings/index.d.ts",

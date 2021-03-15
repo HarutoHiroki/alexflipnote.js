@@ -34,7 +34,6 @@
     "supreme": "/supreme", 
     "didyoumean": "/didyoumean", 
     "drake": "/drake",
-    "fml": "/fml",
     "pornhub": "/pornhub", 
     "ship": "/ship", 
     "trash": "/trash",
@@ -42,6 +41,7 @@
     "coffee": "/random.json"
   },
   "others": {
+    "fml": "/fml",
     "color": "/color/"
   }
 }

@@ -43,7 +43,7 @@ class AlexClient {
             return console.error("Not a valid hex value")
           }
         }else{
-          queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
+          params !== '' ? url.search = new URLSearchParams(params) : '';
           return await getContent(url.toString(), key);
         }
       };

@@ -27,6 +27,10 @@ class AlexClient {
           if(endpoint.includes("coffee")){
             baseURL = 'https://coffee.alexflipnote.dev'
           }
+          let noAuth = ["sadcat", "birb", "dogs", "cats", "sadcat"]
+          if(noAuth.includes(endpoint)){
+            if(!key) key = "noAuth";
+          }
           let url = new URL(`${baseURL}${endpoints.image[endpoint]}`);
           queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
           return await getContent(url.toString(), key);
@@ -36,6 +40,7 @@ class AlexClient {
       this.others[endpoint] = async function (params = '') {
         let url = new URL(`${baseURL}${endpoints.others[endpoint]}`);
         if (endpoint.includes("color")) {
+          if(!key) key = "noAuth";
           if (/^[0-9A-F]{6}$/i.test(params.toUpperCase())) {
             url = url.toString() + params
             return await getContent(url, key);

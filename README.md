@@ -13,6 +13,8 @@ Since AlexFlipnote recently added an Authorization feature to the API, ALL previ
 
 Wondering how to get an Auth token to use your API ye? Well head on to https://discord.gg/DpxkY3x to request one.
 
+(If you use one of these endpoints: `color`, `birb`, `dogs`, `sadcat`, `cats` you can use the wrapper as normal and leave the key blank)
+
 ## Endpoints
 
 ### Image

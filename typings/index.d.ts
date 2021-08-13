@@ -1,52 +1,64 @@
-//List all the functions
+// Interfaces for JSON responses
+declare namespace AlexClient {
+  export interface AlexError {
+    code: number;
+    name: string;
+    description: string;
+  }
+  export interface FileResponse {
+    file: string;
+  }
+}
+
+// List all the functions
 declare class AlexClient {
-  private key: string;
   constructor(key: string);
+
   image: {
-    birb():Promise<JSON>;
-    cats():Promise<JSON>;
-    dogs():Promise<JSON>;
-    sadcat():Promise<JSON>;
-    coffee():Promise<JSON>;
-    amiajoke(object: {image: string}):Promise<Buffer>;
-    bad(object: {image: string}):Promise<Buffer>;
-    joke(object: {image: string}):Promise<Buffer>;
-    salty(object: {image: string}):Promise<Buffer>;
-    what(object: {image: string}):Promise<Buffer>;
-    blur(object: {image: string}):Promise<Buffer>;
-    invert(object: {image: string}):Promise<Buffer>;
-    bnw(object: {image: string}):Promise<Buffer>;
-    flip(object: {image: string}):Promise<Buffer>;
-    mirror(object: {image: string}):Promise<Buffer>;
-    deepfry(object: {image: string}):Promise<Buffer>;
-    pixelate(object: {image: string}):Promise<Buffer>;
-    magik(object: {image: string}):Promise<Buffer>;
-    jpegify(object: {image: string}):Promise<Buffer>;
-    snow(object: {image: string}):Promise<Buffer>;
-    gay(object: {image: string}):Promise<Buffer>;
-    wide(object: {image: string}):Promise<Buffer>;
-    sepia(object: {image: string}):Promise<Buffer>;
-    shame(object: {image: string}):Promise<Buffer>;
-    communist(object: {image: string}):Promise<Buffer>;
-    colorify(object: {image: string, b?: string, c?: string}):Promise<Buffer>;
-    floor(object: {image: string, text: string}):Promise<Buffer>;
-    scroll(object: {image: string}):Promise<Buffer>;
-    facts(object: {text: string}):Promise<Buffer>;
-    calling(object: {image: string}):Promise<Buffer>;
-    captcha(object: {image: string}):Promise<Buffer>;
-    achievement(object: {text: string, icon?: number}):Promise<Buffer>;
-    challenge(object: {text: string, icon?: number}):Promise<Buffer>;
-    supreme(object: {text: string, dark?: boolean, light?: boolean}):Promise<Buffer>;
-    didyoumean(object: {top: string, bottom: string}):Promise<Buffer>;
-    drake(object: {top: string, bottom: string}):Promise<Buffer>;
-    pornhub(object: {text: string, text2: string}):Promise<Buffer>;
-    ship(object: {user: string, user2: string}):Promise<Buffer>;
-    trash(object: {face: string, trash: string}):Promise<Buffer>;
-  }
+    birb(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
+    cats(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
+    dogs(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
+    sadcat(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
+    coffee(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
+    amiajoke(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    bad(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    joke(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    salty(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    what(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    blur(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    invert(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    bnw(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    flip(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    mirror(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    deepfry(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    pixelate(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    magik(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    jpegify(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    snow(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    gay(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    wide(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    sepia(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    shame(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    communist(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    colorify(object: { image: string, b?: string, c?: string }): Promise<Buffer | AlexClient.AlexError>;
+    floor(object: { image: string, text: string }): Promise<Buffer | AlexClient.AlexError>;
+    scroll(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    facts(object: { text: string }): Promise<Buffer | AlexClient.AlexError>;
+    calling(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    captcha(object: { image: string }): Promise<Buffer | AlexClient.AlexError>;
+    achievement(object: { text: string, icon?: number }): Promise<Buffer | AlexClient.AlexError>;
+    challenge(object: { text: string, icon?: number }): Promise<Buffer | AlexClient.AlexError>;
+    supreme(object: { text: string, dark?: boolean, light?: boolean }): Promise<Buffer | AlexClient.AlexError>;
+    didyoumean(object: { top: string, bottom: string }): Promise<Buffer | AlexClient.AlexError>;
+    drake(object: { top: string, bottom: string }): Promise<Buffer | AlexClient.AlexError>;
+    pornhub(object: { text: string, text2: string }): Promise<Buffer | AlexClient.AlexError>;
+    ship(object: { user: string, user2: string }): Promise<Buffer | AlexClient.AlexError>;
+    trash(object: { face: string, trash: string }): Promise<Buffer | AlexClient.AlexError>;
+  };
   others: {
-    fml():Promise<JSON>;
-    color(string: "Hex Value"):Promise<JSON>;
-  }
+    fml(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
+    color(hexValue: string): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
+  };
 }
 
 export = AlexClient;

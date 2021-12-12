@@ -47,18 +47,6 @@ message.channel.send({files: [{ attachment: link.file }]});
 
 ```
 
-### Colorify Example
-```js
-const client = require('alexflipnote.js');
-const alexclient = new client('Your-API-Token-Here');
-
-let url = "https://cdn.discordapp.com/avatars/242263403001937920/37050aab01de8806e4bc1e2b83983439.webp?size=1024";
-
-let link = await alexclient.image.colorify({image: url, c: "00ffd9", b: "000000"});
-message.channel.send({files: [{ attachment: link }]});
-
-```
-
 ### Color Example
 ```js
 const client = require('alexflipnote.js');

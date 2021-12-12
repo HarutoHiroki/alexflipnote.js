@@ -40,7 +40,6 @@ I added a typings file and will be working to perfect it. This allows editors li
 ### Cats Example
 ```js
 const client = require('alexflipnote.js');
-const alexclient = new client('Your-API-Token-Here');
 
 let link = await alexclient.image.cats();
 message.channel.send({files: [{ attachment: link.file }]});
@@ -50,7 +49,6 @@ message.channel.send({files: [{ attachment: link.file }]});
 ### Color Example
 ```js
 const client = require('alexflipnote.js');
-const alexclient = new client('Your-API-Token-Here');
 let body = await alexclient.others.color('00ffd9');
 message.channel.send(body);
 

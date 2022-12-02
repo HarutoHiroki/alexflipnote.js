@@ -57,7 +57,7 @@ const fs = require('fs');
 const https = require('https');
 
 (async () => {
-	const link = await alexClient.cats();
+  const link = await alexClient.cats();
   const file = fs.createWriteStream("image.png");
   https.get(link.file, function(response) {
      response.pipe(file);

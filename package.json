@@ -1,6 +1,6 @@
 {
   "name": "alexflipnote.js",
-  "version": "2.6.3",
+  "version": "3.0.0",
   "description": "JS API wrapper for AlexFlipnote API @ https://api.alexflipnote.dev/",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/HarutoHiroki/alexflipnote.js#readme",
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }

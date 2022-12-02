@@ -18,33 +18,20 @@ async function getContent(url) {
 
 class AlexClient {
   constructor() {
-    this.image = {};
-    this.others = {};
+    let self = this;
     let baseURL = 'https://api.alexflipnote.dev';
-    Object.keys(endpoints.image).forEach(async (endpoint) => {
-      this.image[endpoint] = async function (queryParams = '') {
-          if(endpoint.includes("coffee")){
-            baseURL = 'https://coffee.alexflipnote.dev'
-          }
-          let url = new URL(`${baseURL}${endpoints.image[endpoint]}`);
-          queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
-          return await getContent(url.toString());
-        };
-    });
-    Object.keys(endpoints.others).forEach(async (endpoint) => {
-      this.others[endpoint] = async function (params = '') {
-        let url = new URL(`${baseURL}${endpoints.others[endpoint]}`);
-        if (endpoint.includes("color")) {
-          if (/^[0-9A-F]{6}$/i.test(params.toUpperCase())) {
-            url = url.toString() + params
-            return await getContent(url);
-          } else {
-            return console.error("Not a valid hex value")
-          }
-        }else{
-          params !== '' ? url.search = new URLSearchParams(params) : '';
-          return await getContent(url.toString());
+    Object.keys(endpoints).forEach(async (endpoint) => {
+      self[endpoint] = async function (queryParams = '') {
+        if(endpoint.includes("coffee")){
+          baseURL = 'https://coffee.alexflipnote.dev'
         }
+        let url = new URL(`${baseURL}${endpoints[endpoint]}`);
+        if (endpoint.includes("color")) {
+          url = url.toString() + queryParams
+        }else{
+          queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
+        }
+        return await getContent(url.toString());
       };
     });
   }

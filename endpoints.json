@@ -1,12 +1,17 @@
 {
-  "image": {
-    "birb": "/birb", 
-    "cats": "/cats", 
-    "dogs": "/dogs", 
+    "achievement": "/achievement",
+    "birb": "/birb",
+    "calling" : "/calling",
+    "captcha" : "/captcha",
+    "cats": "/cats",
+    "challenge" : "/challenge",
+    "didyoumean": "/didyoumean",
+    "dogs": "/dogs",
+    "drake": "/drake",
+    "facts": "/facts",
+    "ph": "/pornhub",
     "sadcat": "/sadcat",
-    "coffee": "/random.json"
-  },
-  "others": {
+    "scroll": "/scroll",
+    "coffee": "/random.json",
     "color": "/color/"
-  }
 }

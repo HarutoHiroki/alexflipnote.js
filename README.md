@@ -9,28 +9,34 @@ npm i alexflipnote.js
 ```
 
 ## Recent Updates
-Since December 12th 2021, AlexFlipnote's API will no longer be providing image generation endpoints and will only keep random images endpoints.
-![Screenshot](https://cdn.discordapp.com/attachments/757283952141664336/919599803560788050/unknown.png)
+Good news: AlexFlipnote has returned some of the endpoints back and this module has been updated accordingly
+![Screenshot](https://cdn.discordapp.com/attachments/823121881762758706/1048038151823839242/image.png)
 
 ## Endpoints
 
-### Image
-| Function | Params | Description | Type |
-| -------- | ------ | ----------- | ---- |
-| `birb()` | none | Sends a random birb image | JSON |
-| `cats()` | none | Sends a random cat image | JSON |
-| `dogs()` | none | Sends a random dog image | JSON |
-| `sadcat()` | none | Sends a random sad cat image | JSON |
-| `coffee()` | none | Sends a random Coffee image | JSON |
+| Function        | Params                    | Description                                          |
+| --------------- | ------------------------- | ---------------------------------------------------- |
+| `achievement()` | `text`, `icon` (optional) | Sends a Minecraft achievement image                  |
+| `birb()`        | none                      | Sends a random birb image                            |
+| `calling()`     | `text`                    | Sends a Tom calling image                            |
+| `captcha()`     | `text`                    | Sends a Google captcha image                         |
+| `cats()`        | none                      | Sends a random cat image                             |
+| `challenge()`   | `text`, `icon` (optional) | Sends a Minecraft challenge image                    |
+| `color()`       | `string`                  | Searches a color from hex code and provide more info |
+| `didyoumean?()` | `top`, `bottom`           | Sends a "Did you mean" Google image                  |
+| `dogs()`        | none                      | Sends a random dog image                             |
+| `drake()`       | `top`, `bottom`           | Sends a Drake yes no image                           |
+| `facts()`       | `text`                    | Sends a facts book image                             |
+| `ph()`          | `text`, `text2`           | Sends a pornhub logo format image                    |
+| `sadcat()`      | none                      | Sends a random sad cat image                         |
+| `scroll()`      | `text`                    | Sends a scroll of truth image                        |
+| `coffee()`      | none                      | Sends a random Coffee image                          |
 
-### Others
-| Function | Params | Description | Type |
-| -------- | ------ | ----------- | ---- |
-| `color()` | `hex` | Searches a color from hex code and provide more info | JSON |
+`birb/cats/dogs/sadcat/coffee` will return `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`
 
-`birb/cats/dogs/sadcat/coffee` will return a JSON `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`
+`color` returns (example: https://api.alexflipnote.dev/color/00ffd9)
 
-`color` will return a JSON (example: [Color](https://github.com/HarutoHiroki/alexflipnote.js/blob/master/README.md#Color-Example))
+Other methods not listed above will return an image buffer.
 
 
 ## Typings
@@ -40,40 +46,40 @@ I added a typings file and will be working to perfect it. This allows editors li
 ### Cats Example
 ```js
 const client = require('alexflipnote.js');
-const alexclient = new client();
-let link = await alexclient.image.cats();
-message.channel.send({files: [{ attachment: link.file }]});
-
+const alexClient = new client();
+let link = await alexClient.cats();
+let image = new MessageAttachment(link.file, { name: "image.png" });
+channel.send({files: [image]});
 ```
 
 ### Color Example
 ```js
 const client = require('alexflipnote.js');
-const alexclient = new client();
-let body = await alexclient.others.color('00ffd9');
-message.channel.send(body);
+const alexClient = new client();
+let body = await alexClient.color('00ffd9');
+console.log(body);
+```
 
-``` 
-returns:
-```cmd
-{
-  "blackorwhite_text": "#ffffff", 
-  "brightness": 157, 
-  "hex": "#00ffd9", 
-  "image": "https://api.alexflipnote.dev/color/image/00ffd9", 
-  "image_gradient": "https://api.alexflipnote.dev/color/image/gradient/00ffd9", 
-  "int": 65497, 
-  "name": "Bright Teal", 
-  "rgb": "rgb(0, 255, 217)", 
-  "rgb_values": {"r": 0, "g": 255, "b": 217}, 
-  "shade": ["00ffd9", "00e5c3", "00ccad", "00b297", "009982", "007f6c", "006556", "004c41", "00322b", "001915", "000000"], 
-  "tint": ["00ffd9", "19ffdc", "33ffe0", "4cffe4", "66ffe8", "7fffec", "99ffef", "b2fff3", "ccfff7", "e5fffb", "FFFFFF"]
-}
+
+### Utilisation of Buffers in Embeds in Discord.js v14 Example
+```js
+const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
+const client = require('alexflipnote.js');
+const alexClient = new client();
+
+let buffer = alexClient.challenge({"balls", 1});
+let file = new AttachmentBuilder(buffer, { name: 'image.png' });
+
+const embed = new EmbedBuilder()
+	.setTitle('Nice Image')
+	.setImage('attachment://image.png');
+
+channel.send({ embeds: [embed], files: [file] });
 ```
 
 # Made By
 This wrapper is made by HarutoHiroki#4000 on Discord.
 
-For questions and bug reports you can join [my server](https://discord.gg/sjtcnRb) or [AlexFlipnote's server](https://discord.gg/alexflipnote)
+For questions and bug reports you can join my [Discord server](https://discord.gg/sjtcnRb) or [AlexFlipnote's server](https://discord.gg/alexflipnote)
 
 Suggestions are welcomed!

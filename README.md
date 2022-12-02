@@ -31,7 +31,7 @@ Good news: AlexFlipnote has returned some of the endpoints back and this module 
 | `ph()`          | `text`, `text2`                                     | Sends a pornhub logo format image                    |
 | `sadcat()`      | none                                                | Sends a random sad cat image                         |
 | `scroll()`      | `text`                                              | Sends a scroll of truth image                        |
-| `sillycat()`    | `seed` (optional) **or** `hex`, `hex2` (optional)   | Sends a scroll of truth image                        |
+| `sillycat()`    | `seed` (optional) **or** `hex`, `hex2` (optional)   | Sends a silly cat image                              |
 | `coffee()`      | none                                                | Sends a random Coffee image                          |
 
 `birb/cats/dogs/sadcat/coffee` will return `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`

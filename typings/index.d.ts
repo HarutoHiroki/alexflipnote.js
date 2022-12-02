@@ -10,6 +10,7 @@ declare namespace AlexClient {
   export interface FileResponse {
     file: string;
   }
+  
   /**
    * @author HarutoHiroki <https://github.com/HarutoHiroki>
    */
@@ -39,6 +40,19 @@ declare namespace AlexClient {
       tint: Array<string>;
     };
   }
+
+  export interface NftResponse {
+    hex: string;
+    season: string;
+    name: string;
+    image: string;
+  }
+
+  export interface SillycatResponse {
+    left: string;
+    right: string;
+    images: {simple: string, complex: string};
+  }
 }
 
 /** List all the functions
@@ -51,15 +65,19 @@ declare class AlexClient {
   captcha(text:string): Promise<ArrayBuffer | AlexClient.AlexError>;
   cats(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
   challenge(text:string,icon?:number): Promise<ArrayBuffer | AlexClient.AlexError>;
+  color(string: string): Promise<AlexClient.ColorResponse | AlexClient.AlexError>;
   didyoumean(top:string, bottom:string): Promise<ArrayBuffer | AlexClient.AlexError>;
   dogs(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
   drake(top:string, bottom:string): Promise<ArrayBuffer | AlexClient.AlexError>;
   facts(text:string): Promise<ArrayBuffer | AlexClient.AlexError>;
+  nft(seed?:string): Promise<AlexClient.NftResponse | AlexClient.AlexError>;
+  nft(hex:string, season?:string): Promise<ArrayBuffer | AlexClient.AlexError>;
   ph(text:string,text2:string): Promise<ArrayBuffer | AlexClient.AlexError>;
   sadcat(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
   scroll(text:string): Promise<ArrayBuffer | AlexClient.AlexError>;
+  sillycat(seed?:string): Promise<AlexClient.SillycatResponse | AlexClient.AlexError>;
+  sillycat(hex: string, hex2:string): Promise<ArrayBuffer | AlexClient.AlexError>;
   coffee(): Promise<AlexClient.FileResponse | AlexClient.AlexError>;
-  color(string: string): Promise<AlexClient.ColorResponse | AlexClient.AlexError>;
 }
 
 export = AlexClient;

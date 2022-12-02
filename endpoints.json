@@ -5,13 +5,15 @@
     "captcha" : "/captcha",
     "cats": "/cats",
     "challenge" : "/challenge",
+    "color": "/color/",
     "didyoumean": "/didyoumean",
     "dogs": "/dogs",
     "drake": "/drake",
     "facts": "/facts",
+    "nft": "/nft",
     "ph": "/pornhub",
     "sadcat": "/sadcat",
     "scroll": "/scroll",
-    "coffee": "/random.json",
-    "color": "/color/"
+    "sillycat": "/sillycat",
+    "coffee": "/random.json"
 }

@@ -23,12 +23,24 @@ class AlexClient {
     Object.keys(endpoints).forEach(async (endpoint) => {
       self[endpoint] = async function (queryParams = '') {
         if(endpoint.includes("coffee")){
-          baseURL = 'https://coffee.alexflipnote.dev'
+          baseURL = 'https://coffee.alexflipnote.dev';
         }
         let url = new URL(`${baseURL}${endpoints[endpoint]}`);
         if (endpoint.includes("color")) {
-          url = url.toString() + queryParams
-        }else{
+          url = url.toString() + queryParams;
+        } else if (endpoint.includes("nft")) {
+          if (queryParams.hex) {
+            url = `${url}/${queryParams.hex}${queryParams.season ? `/${queryParams.season}` : ''}`;
+          } else {
+            queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
+          } 
+        } else if (endpoint.includes("sillycat")) {
+          if (queryParams.hex) {
+            url = `${url}/${queryParams.hex}${queryParams.hex2 ? `/${queryParams.hex2}` : ''}`;
+          } else {
+            queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
+          } 
+        } else {
           queryParams !== '' ? url.search = new URLSearchParams(queryParams) : '';
         }
         return await getContent(url.toString());

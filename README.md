@@ -14,27 +14,33 @@ Good news: AlexFlipnote has returned some of the endpoints back and this module 
 
 ## Endpoints
 
-| Function        | Params                    | Description                                          |
-| --------------- | ------------------------- | ---------------------------------------------------- |
-| `achievement()` | `text`, `icon` (optional) | Sends a Minecraft achievement image                  |
-| `birb()`        | none                      | Sends a random birb image                            |
-| `calling()`     | `text`                    | Sends a Tom calling image                            |
-| `captcha()`     | `text`                    | Sends a Google captcha image                         |
-| `cats()`        | none                      | Sends a random cat image                             |
-| `challenge()`   | `text`, `icon` (optional) | Sends a Minecraft challenge image                    |
-| `color()`       | `string`                  | Searches a color from hex code and provide more info |
-| `didyoumean?()` | `top`, `bottom`           | Sends a "Did you mean" Google image                  |
-| `dogs()`        | none                      | Sends a random dog image                             |
-| `drake()`       | `top`, `bottom`           | Sends a Drake yes no image                           |
-| `facts()`       | `text`                    | Sends a facts book image                             |
-| `ph()`          | `text`, `text2`           | Sends a pornhub logo format image                    |
-| `sadcat()`      | none                      | Sends a random sad cat image                         |
-| `scroll()`      | `text`                    | Sends a scroll of truth image                        |
-| `coffee()`      | none                      | Sends a random Coffee image                          |
+| Function        | Params                                              | Description                                          |
+| --------------- | --------------------------------------------------- | ---------------------------------------------------- |
+| `achievement()` | `text`, `icon` (optional)                           | Sends a Minecraft achievement image                  |
+| `birb()`        | none                                                | Sends a random birb image                            |
+| `calling()`     | `text`                                              | Sends a Tom calling image                            |
+| `captcha()`     | `text`                                              | Sends a Google captcha image                         |
+| `cats()`        | none                                                | Sends a random cat image                             |
+| `challenge()`   | `text`, `icon` (optional)                           | Sends a Minecraft challenge image                    |
+| `color()`       | `string`                                            | Searches a color from hex code and provide more info |
+| `didyoumean?()` | `top`, `bottom`                                     | Sends a "Did you mean" Google image                  |
+| `dogs()`        | none                                                | Sends a random dog image                             |
+| `drake()`       | `top`, `bottom`                                     | Sends a Drake yes no image                           |
+| `facts()`       | `text`                                              | Sends a facts book image                             |
+| `nft()`         | `seed` (optional) **or** `hex`, `season` (optional) | Sends a randomised (or customised) xelA avatar/nft   |
+| `ph()`          | `text`, `text2`                                     | Sends a pornhub logo format image                    |
+| `sadcat()`      | none                                                | Sends a random sad cat image                         |
+| `scroll()`      | `text`                                              | Sends a scroll of truth image                        |
+| `sillycat()`    | `seed` (optional) **or** `hex`, `hex2` (optional)   | Sends a scroll of truth image                        |
+| `coffee()`      | none                                                | Sends a random Coffee image                          |
 
 `birb/cats/dogs/sadcat/coffee` will return `{file: "https://api.alexflipnote.dev/cats/zDm8l4maVQg_cats.png"}`
 
-`color` returns (example: https://api.alexflipnote.dev/color/00ffd9)
+`color` example return: [Color](https://api.alexflipnote.dev/color/00ffd9)
+
+`nft` without parameters or only `seed` parameter example return: [NFT](https://api.alexflipnote.dev/nft?seed=%22balls%22)
+
+`sillycat` without parameters or only `seed` parameter example return: [Sillycat](https://api.alexflipnote.dev/sillycat?seed=%22balls%22)
 
 Other methods not listed above will return an image buffer.
 
@@ -47,9 +53,38 @@ I added a typings file and will be working to perfect it. This allows editors li
 ```js
 const client = require('alexflipnote.js');
 const alexClient = new client();
-let link = await alexClient.cats();
-let image = new MessageAttachment(link.file, { name: "image.png" });
-channel.send({files: [image]});
+const fs = require('fs');
+const https = require('https');
+
+(async () => {
+	const link = await alexClient.cats();
+  const file = fs.createWriteStream("image.png");
+  https.get(link.file, function(response) {
+     response.pipe(file);
+     file.on("finish", () => {
+         file.close();
+     });
+  });
+})();
+```
+
+### NFT and Sillycat Example
+```js
+const client = require('alexflipnote.js');
+const alexClient = new client();
+const fs = require('fs');
+const https = require('https');
+
+(async () => {
+  const image = await alexClient.sillycat();
+  const file = fs.createWriteStream("image.png");
+  https.get(image.images.simple, function(response) {
+     response.pipe(file);
+     file.on("finish", () => {
+         file.close();
+     });
+  });
+})();
 ```
 
 ### Color Example
@@ -59,7 +94,6 @@ const alexClient = new client();
 let body = await alexClient.color('00ffd9');
 console.log(body);
 ```
-
 
 ### Utilisation of Buffers in Embeds in Discord.js v14 Example
 ```js
